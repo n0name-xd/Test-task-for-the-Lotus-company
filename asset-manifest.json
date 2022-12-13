@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Test-task-for-the-Lotus-company/static/css/main.727d4610.css",
+    "main.js": "/Test-task-for-the-Lotus-company/static/js/main.3fd8bab8.js",
+    "static/js/787.3fb5f725.chunk.js": "/Test-task-for-the-Lotus-company/static/js/787.3fb5f725.chunk.js",
+    "index.html": "/Test-task-for-the-Lotus-company/index.html",
+    "main.727d4610.css.map": "/Test-task-for-the-Lotus-company/static/css/main.727d4610.css.map",
+    "main.3fd8bab8.js.map": "/Test-task-for-the-Lotus-company/static/js/main.3fd8bab8.js.map",
+    "787.3fb5f725.chunk.js.map": "/Test-task-for-the-Lotus-company/static/js/787.3fb5f725.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.727d4610.css",
+    "static/js/main.3fd8bab8.js"
+  ]
+}
