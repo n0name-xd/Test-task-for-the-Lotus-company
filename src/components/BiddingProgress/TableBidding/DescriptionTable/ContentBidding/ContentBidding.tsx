@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 export const ContentBidding: React.FC = () => {
 
     const position = useAppSelector(state => state.timer.changeUser.position);
-    let [pos, setPos] = useState<number>(-2)
+    let [pos, setPos] = useState<number>(-1)
 
     function next(arr: any) {
         setPos(pos += 1)
