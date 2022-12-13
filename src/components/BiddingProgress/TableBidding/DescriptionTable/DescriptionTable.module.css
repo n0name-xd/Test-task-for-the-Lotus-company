@@ -1,0 +1,27 @@
+.dt_wrapper {
+    width: 25vw;
+    height: 100%;
+    padding-right: 1wh;
+}
+
+.dt_motion {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #5E92A6;
+    font-weight: 600;
+}
+
+.dt_descriptions {
+    width: 100%;
+    height: 80px;
+    border-bottom: 2px solid #C9C9C9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #5E92A6;
+    font-weight: 600;
+}
+

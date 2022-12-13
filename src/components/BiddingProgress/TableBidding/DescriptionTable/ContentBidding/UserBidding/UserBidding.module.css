@@ -1,0 +1,74 @@
+.user_wrapper {
+    height: 100%;
+    width: 310px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 5;
+}
+
+.timer_conteiner {
+    width: 100%;
+    height: 60px;
+    background-color: #F2DEDE;
+    border-radius: 10px;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.timer_conteiner_empty {
+    width: 100%;
+    height: 60px;
+    background-color:white;
+}
+
+.user_number {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    color: #5E92A6;
+}
+
+.company_name {
+    padding-top: 10px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.companyEvents {
+    padding-top: 40px;
+    text-align: center;
+}
+
+.productionTime {
+    padding-top: 38px;
+    text-align: center;
+}
+
+.warrantyObligations {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.paymentTerms {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.totalPrice {
+    padding-top: 23px;
+    text-align: center;
+}
+
+.icon {
+    width: 14px;
+    position: relative;
+    left: 60px;
+}
+
