@@ -1,30 +1,37 @@
 import style from "./ContentBidding.module.css";
-import  { UserBidding }  from "./UserBidding/UserBidding";
+import { UserBidding } from "./UserBidding/UserBidding";
 import { dataCompany } from "../../../../../dataBidding/dataCompanys";
-import { useAppSelector } from "../../../../../app/hooks";
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
+import { createTamplate } from "../../../../../helpers/tamplatesTime/createTamplate";
 
 export const ContentBidding: React.FC = () => {
 
-    const position = useAppSelector(state => state.timer.changeUser.position);
-    let [pos, setPos] = useState<number>(-1)
+    let [position, setPosition] = useState<number>(0);
 
-    function next(arr: any) {
-        setPos(pos += 1)
-        if (pos == arr.length) {
-            setPos(pos = 0)
-        }
+    const participantSwitchingPattern = useMemo(() => createTamplate(dataCompany), []);
+
+    function next(arrTamplate: any, arrUsers: any) {
+        let dateNow = new Date().getUTCMinutes();
+
+        for (let i = 0; i < arrTamplate.length; i++) {
+            if (arrTamplate[i].time.from === dateNow || dateNow === arrTamplate[i].time.from + 1) {
+                setPosition(position = arrTamplate[i].position)
+            };
+        };
     };
-    useEffect(() => {
-        next(dataCompany)
-    }, [position])
-    
-    const companyList = dataCompany.map((company, index) => {
+
+    (() => {
+        setInterval(() => {
+            next(participantSwitchingPattern, dataCompany)
+        }, 1000)
+    })();
+
+    const companyList = dataCompany.map((company, index, arr) => {
         return (
             <UserBidding
                 key={company.compamyName}
                 companyDescription={company}
-                isTimer={pos === index ? true : false}
+                isTimer={position === index ? true : false}
                 position={index + 1}
             />
         );

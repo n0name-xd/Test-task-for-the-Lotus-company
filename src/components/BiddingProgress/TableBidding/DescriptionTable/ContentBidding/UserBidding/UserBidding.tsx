@@ -4,8 +4,7 @@ import { converterMoney } from "../../../../../../helpers/converterMoney";
 import icon from "./icons/hourglass.png";
 import { timeConverter } from "../../../../../../helpers/timeConverter";
 import { useAppDispatch, useAppSelector } from "../../../../../../app/hooks";
-import { timerRun, changeUser } from "../../../../../../features/timer/timerSlice";
-import { useEffect } from "react";
+import { timerRun } from "../../../../../../features/timer/timerSlice";
 
 export const UserBidding: React.FC<UserBiddingProps> = ({ companyDescription, isTimer, position }: UserBiddingProps) => {
 
@@ -23,16 +22,12 @@ export const UserBidding: React.FC<UserBiddingProps> = ({ companyDescription, is
         }, 1000)
     })();
 
-    useEffect(() => {
-        dispatch(changeUser(timer));
-    }, [timer.minutes]);
-
     return (
         <div className={style.user_wrapper}>
             <div className={styleTimer}>
                 <span 
                     >
-                    {isTimer && <span>{`00:${timeConverter(timer.minutes)}:${timeConverter(timer.seconds)}`}</span>}
+                    {isTimer && <span>{`00:${timeConverter(timer.minutes)}:${timeConverter(timer.seconds)}`}</span>} 
                 </span>
                 {isTimer && <img
                     className={style.icon}

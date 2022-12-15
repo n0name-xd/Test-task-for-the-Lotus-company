@@ -5,20 +5,13 @@ export interface TimerState {
         minutes: string | number
         seconds: string | number
     }
-    changeUser: {
-        position: number
-    }
 };
 
 const initialState: TimerState = {
     time: {
         minutes: "00",
         seconds: "60",
-    },
-    changeUser: {
-        position: 0
     }
-
 };
 
 export const timerSlice = createSlice({
@@ -26,20 +19,22 @@ export const timerSlice = createSlice({
     initialState,
     reducers: {
         timerRun(state) {
-            let date = new Date();
-            state.time.seconds = Math.abs(date.getSeconds() - 60);
-            state.time.minutes = date.getMinutes() % 2 === 0 ? 0 : 1;
-        },
-        changeUser(state, action) {
-            if (action.payload.minutes === 1 && action.payload.seconds === 60) {
-                state.changeUser.position += 0.5
+            const futureData = new Date(2050, 0, 0);
+            let nowData = new Date();
+            state.time.seconds = 60 - (nowData.getUTCSeconds() - futureData.getUTCSeconds());
+            let minutes = (60 - (nowData.getUTCMinutes() - futureData.getUTCMinutes()));
 
-            }
-            
+            let computedMinutes = Number(String(minutes).slice(1));
+
+            if (computedMinutes % 2 !== 0) {
+                state.time.minutes = 0;
+            } else {
+                state.time.minutes = 1;
+            };
         }
     }
 });
 
-export const { timerRun, changeUser } = timerSlice.actions;
+export const { timerRun } = timerSlice.actions;
 
 export default timerSlice.reducer;
